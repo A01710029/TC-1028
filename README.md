@@ -2,5 +2,5 @@
 ### Contexto
 En que te estás basando
 
-##Instrucciones
+### Instrucciones
 Como esperas resolverlo (pseudocódigo?)
