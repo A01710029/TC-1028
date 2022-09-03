@@ -1,28 +1,48 @@
-#Profesor, como nota personal, aprendí a programar en inglés y estoy acostumbrada
-#a escribir mis comentarios en inglés. ¿Le molesta si comento
-#mi proyecto final en inglés, o quiere que lo haga en español?
+#Estoy escribiendo los comentarios en inglés. Hablé con el 
+#profesor sobre esta decisión.
 
 #import math and random
 import math
 import random
 
-#greet user
+#declare variables
+nombre = str(input("¿Cómo te llamas?\n"))
+adivinanza = int()
+intentos = 0
 
 #ask for top number
 print("¿Cuál debería ser el número tope?")
 tope = int(input())
 
-#generate random number
-num_compu = random.randint(0,tope)
+#check that top number is not negative or zero
+#once ok, generate random number
+while(tope <= 0):
+    print("El número tiene que ser mayor que cero.")
+    print("¿Cuál debería ser el número tope?")
+    tope = int(input())
+num_compu = random.randint(1,tope)
+    
+#function to display game start text
+def comienzo(nombre, tope):
+    print("Hola", nombre)
+    print("""¡Intenta adivinar en qué número 
+entre 1 y""", str(tope) + """ estoy pensando!""")
 
-#prompt user to start guessing
-adivinanza = int(input())
+#function to prompt, analyze, give feedback on, 
+#and keep count of guesses
+def adivina_compara(adivinanza, intentos):
+    while (adivinanza != num_compu):
+        adivinanza = int(input())
+        if adivinanza < num_compu:
+            intentos = intentos + 1
+            print("Intenta un número más grande")
+        elif adivinanza > num_compu:
+            intentos = intentos + 1
+            print("Intenta un número más pequeño")
+    print("¡Adivinaste el número!")
+    intentos = str(intentos)
+    return "Cuántos intentos tomo?: " + intentos
 
-#compare user guess to random number
-if adivinanza < num_compu:
-    print("Intenta un número más pequeño")
-elif adivinanza > num_compu:
-    print("Intenta un número más grande")
-
-intentos = int()
-intentos = intentos + 1
+#call function + print final results
+comienzo(nombre, tope)
+print(adivina_compara(adivinanza, intentos))
