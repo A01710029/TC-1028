@@ -8,18 +8,18 @@ import random
 #declare variables
 nombre = str(input("¿Cómo te llamas?\n"))
 adivinanza = int()
-intentos = 0
+intentos = 1
 
 #ask for top number
 print("¿Cuál debería ser el número tope?")
 tope = int(input())
 
-#check that top number is not negative or zero
+#check that top number is not negative or smaller than 2
 #once ok, generate random number
-while(tope <= 0):
-    print("El número tiene que ser mayor que cero.")
-    print("¿Cuál debería ser el número tope?")
-    tope = int(input())
+while(tope <= 1):
+        print("El número tiene que ser mayor que uno.")
+        print("¿Cuál debería ser el número tope?")
+        tope = int(input())
 num_compu = random.randint(1,tope)
     
 #function to display game start text
@@ -39,9 +39,9 @@ def adivina_compara(adivinanza, intentos):
         elif adivinanza > num_compu:
             intentos = intentos + 1
             print("Intenta un número más pequeño")
-    print("¡Adivinaste el número!")
+    print("¡Adivinaste el número,", nombre + "!")
     intentos = str(intentos)
-    return "Cuántos intentos tomo?: " + intentos
+    return "¿Cuántos intentos tomo?: " + intentos
 
 #call function + print final results
 comienzo(nombre, tope)
