@@ -214,5 +214,6 @@ entre 1 y""", str(tope) + """ estoy pensando!""")
     if(check == "y"):
         continue
     else:
-        print(stats_rondas(matriz_rondas))
+        if rondas > 2:
+            print(stats_rondas(matriz_rondas))
     break
