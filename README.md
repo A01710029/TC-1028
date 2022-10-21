@@ -54,3 +54,5 @@ Me parece un proyecto interesante porque siempre me ha gustado jugar este juego 
      devolver("Adivinaste correctamente!")
  
      EF(intentos, timer)
+     
+ ### API
