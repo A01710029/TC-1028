@@ -107,65 +107,7 @@ entre 1 y""", str(tope) + """ estoy pensando!""")
                 lista_intentos.remove(0) 
             i = i + 1 
         print(lista_intentos) 
-
-    def mejor_adivinanza(matriz):
-        """
-        recibe: matriz (valores de todas las rondas) 
-        divide cada adivinanza por el valor tope y compara 
-        los promedios de todas las rondas para identificar el valor menor 
-        si hay un empate, nombre la última ronda con el valor menor
-        devuelve: el nombre de la ronda con el menor promedio 
-        """
-        menor_val = matriz[0][2]/matriz[0][1]
-        menor_nom = ""
-        i = 0
-        while i < len(matriz):
-            j = 0
-            while j < len(matriz[0]):
-                if(matriz[i][2]/matriz[i][1] < menor_val):
-                    menor_val = matriz[i][2]
-                    menor_nom = matriz[i][0]
-                else:
-                    menor_nom = matriz[0][0]
-                j = j + 1
-            i = i + 1
-        return menor_nom 
     
-    def mejor_tiempo(matriz):
-        """
-        recibe: matriz (valores de todas las rondas) 
-        compara los valores de tiempo de todas las rondas 
-        para identificar el valor menor 
-        devuelve: el nombre de la ronda con el menor tiempo 
-        """
-        menor_val = matriz[0][3]
-        menor_nom = ""
-        i = 0
-        while i < len(matriz):
-            j = 0
-            while j < len(matriz[0]):
-                if(matriz[i][3] < menor_val):
-                    menor_val = matriz[i][2]
-                    menor_nom = matriz[i][0]
-                else:
-                    menor_nom = matriz[0][0]
-                j = j + 1
-            i = i + 1
-        return menor_nom
-
-    def stats_rondas(matriz):
-        """
-        recibe: matriz (valores de todas las rondas) 
-        llama las funciones que comparan los valores entre rondas
-        para encontrar las mejores rondas
-        devuelve: los nombres de las mejores rondas, ordenadas
-        """
-        print(matriz_rondas)
-        mejor_a = mejor_adivinanza(matriz) 
-        mejor_t = mejor_tiempo(matriz)
-        return "La ronda con el mejor promedio de adivinanzas fue: " + mejor_a \
-            + "\nLa ronda con el mejor tiempo fue: " + mejor_t
-
     def nombre_replace(nombre, rep):
         """"
         recibe: nombre valor string y rep valor string
@@ -200,8 +142,15 @@ entre 1 y""", str(tope) + """ estoy pensando!""")
     número de ronda al nombre (para diferenciarlos)
     """
     if(rondas > 1): 
-        nombre_repeat = nombre + str(rondas)
-        nombre_replace(nombre, nombre_repeat)
+        i = 0
+        while i < len(matriz_rondas):
+            j = 0
+            while j < len(matriz_rondas[0]):
+                if(matriz_rondas[0][i] == nombre):
+                    nombre_repeat = nombre + str(rondas)
+                    nombre_replace(nombre, nombre_repeat)
+                j = j + 1
+            i = i + 1    
 
     #agrega al contador de rondas 
     rondas = rondas + 1
@@ -214,6 +163,5 @@ entre 1 y""", str(tope) + """ estoy pensando!""")
     if(check == "y"):
         continue
     else:
-        if rondas > 2:
-            print(stats_rondas(matriz_rondas))
-    break
+        print("Los resultados de este juego fueron:", matriz_rondas)
+        break
