@@ -8,7 +8,6 @@ y regresa las mejor ronda.
 """
 
 #bibliotecas 
-import math 
 import random 
 import time 
 
