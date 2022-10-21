@@ -56,3 +56,8 @@ Me parece un proyecto interesante porque siempre me ha gustado jugar este juego 
      EF(intentos, timer)
      
  ### API
+Las bibliotecas que se importaron y usaron para este proyecto son random (https://docs.python.org/3/library/random.html) y time (https://docs.python.org/3/library/time.html). 
+
+La biblioteca random se utiliza con la función "random.randint(rango)", que sirve en el programa para generar el número aleatorio que el usuario debe adivinar, con el número tope que el usuario asigna sirviendo como el límite del rango (línea 50). 
+
+La biblioteca time se utiliza con las función "time.time()", que sirve en el programa para crear el cronómetro del programa. Inicia a contar el tiempo cuando inicia la ronda y para de contar el tiempo cuando la ronda termina (líneas 130 y 132).  
